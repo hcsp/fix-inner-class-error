@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
+    static Home2 home2 = new Home2();
     public List<String> getCatNames() {
         CatNameCollector collector = new CatNameCollector();
         cats.forEach(collector);
@@ -28,7 +29,7 @@ public class Home2 {
 
         @Override
         public void accept(Cat cat) {
-            log(cat);
+            home2.log(cat);
             catNames.add(cat.getName());
         }
 
