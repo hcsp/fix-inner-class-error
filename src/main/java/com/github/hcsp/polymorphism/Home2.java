@@ -25,11 +25,10 @@ public class Home2 {
         // 而是引入一个外围类的实例以调用外围类的实例方法
         // private Home2 home;
         private List<String> catNames = new ArrayList<>();
-        private Home2 self = new Home2();
 
         @Override
         public void accept(Cat cat) {
-            self.log(cat);
+            log(cat);
             catNames.add(cat.getName());
         }
 
