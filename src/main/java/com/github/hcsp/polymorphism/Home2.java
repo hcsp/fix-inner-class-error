@@ -8,7 +8,7 @@ public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
-        CatNameCollector collector = new CatNameCollector();
+        CatNameCollector collector = new CatNameCollector(this);
         cats.forEach(collector);
         return collector.getCatNames();
     }
@@ -25,11 +25,18 @@ public class Home2 {
         // 而是引入一个外围类的实例以调用外围类的实例方法
         // private Home2 home;
         private List<String> catNames = new ArrayList<>();
+        private Home2 home;
+
+        public CatNameCollector(Home2 home) {
+            this.home = home;
+        }
+
 
         @Override
         public void accept(Cat cat) {
-            log(cat);
-            catNames.add(cat.getName());
+
+            home.log(cat);
+            catNames.add(cat.getName().toString());
         }
 
         private List<String> getCatNames() {
