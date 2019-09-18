@@ -8,7 +8,7 @@ public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
-        CatNameCollector collector = new CatNameCollector();
+        CatNameCollector collector = new CatNameCollector(this);
         cats.forEach(collector);
         return collector.getCatNames();
     }
@@ -19,6 +19,12 @@ public class Home2 {
     }
 
     static class CatNameCollector implements Consumer<Cat> {
+        private Home2 this$0;
+
+        public CatNameCollector(Home2 this$0) {
+            this.this$0 = this$0;
+        }
+
         // 在这个类里会产生一个编译错误
         // 请思考一下为什么
         // 不要将此类改写成非静态的内部类
@@ -28,7 +34,7 @@ public class Home2 {
 
         @Override
         public void accept(Cat cat) {
-            log(cat);
+            this$0.log(cat);
             catNames.add(cat.getName());
         }
 
