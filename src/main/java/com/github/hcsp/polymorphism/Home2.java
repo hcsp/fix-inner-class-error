@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class Home2 {
+public class Home2{
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
@@ -28,7 +28,7 @@ public class Home2 {
 
         @Override
         public void accept(Cat cat) {
-            log(cat);
+            new Home2().log(cat);
             catNames.add(cat.getName());
         }
 
