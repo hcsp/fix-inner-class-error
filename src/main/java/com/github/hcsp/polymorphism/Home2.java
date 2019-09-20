@@ -23,17 +23,12 @@ public class Home2{
         // 请思考一下为什么
         // 不要将此类改写成非静态的内部类
         // 而是引入一个外围类的实例以调用外围类的实例方法
-        private Home2 home;
+        // private Home2 home;
         private List<String> catNames = new ArrayList<>();
-
-        public void setHome(Home2 home) {
-            this.home = home;
-        }
 
         @Override
         public void accept(Cat cat) {
-            setHome(new Home2());
-            home.log(cat);
+            new Home2().log(cat);
             catNames.add(cat.getName());
         }
 
