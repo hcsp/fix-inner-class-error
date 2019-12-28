@@ -21,9 +21,16 @@ public class Home {
     // 在这个类里会产生一个编译错误
     // 请思考一下为什么
     // 并将此类改写成非静态的内部类，以修复此问题
-    static class CatNameCollector implements Consumer<Cat> {
+    class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
+        /*
+            不知道这样的解释对不对。。。
 
+            类的初始化顺序是先从静态再到非静态，在内部静态类中调用外部类的非静态的成员时，其还未被加载到虚拟机（外部类的引用还找不到），
+            所以无法编译。
+
+            而通过实例调用，外围类已经被实例化了，可以调用其的方法
+         */
         @Override
         public void accept(Cat cat) {
             log(cat);
