@@ -18,7 +18,7 @@ public class Home2 {
         System.out.println("Collecting cat " + cat.getName());
     }
 
-    static class CatNameCollector implements Consumer<Cat> {
+    class CatNameCollector implements Consumer<Cat> {
         // 在这个类里会产生一个编译错误
         // 请思考一下为什么
         // 不要将此类改写成非静态的内部类
