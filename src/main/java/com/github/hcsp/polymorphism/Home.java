@@ -7,6 +7,10 @@ import java.util.function.Consumer;
 public class Home {
     List<Cat> cats = new ArrayList<>();
 
+    public static void main(String[] args) {
+       Home home = new Home();
+       home.getCatNames();
+    }
     public List<String> getCatNames() {
         CatNameCollector collector = new CatNameCollector();
         cats.forEach(collector);
@@ -21,7 +25,7 @@ public class Home {
     // 在这个类里会产生一个编译错误
     // 请思考一下为什么
     // 并将此类改写成非静态的内部类，以修复此问题
-    static class CatNameCollector implements Consumer<Cat> {
+    class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
 
         @Override
