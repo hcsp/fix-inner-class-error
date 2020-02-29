@@ -14,7 +14,7 @@ public class Home2 {
     }
 
     // 记录日志
-    private static void log(Cat cat) {
+    private void log(Cat cat) {
         System.out.println("Collecting cat " + cat.getName());
     }
 
