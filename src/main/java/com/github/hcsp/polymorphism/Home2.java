@@ -8,7 +8,7 @@ public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
-        CatNameCollector collector = new CatNameCollector();
+        CatNameCollector collector = new CatNameCollector(this);
         cats.forEach(collector);
         return collector.getCatNames();
     }
@@ -26,9 +26,15 @@ public class Home2 {
         // private Home2 home;
         private List<String> catNames = new ArrayList<>();
 
+        private Home2 home = new Home2();
+
+        public CatNameCollector(Home2 home) {
+            this.home = home;
+        }
+
         @Override
         public void accept(Cat cat) {
-            log(cat);
+            home.log(cat);
             catNames.add(cat.getName());
         }
 
