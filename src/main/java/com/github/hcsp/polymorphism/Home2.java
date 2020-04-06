@@ -25,7 +25,7 @@ public class Home2 {
         // 而是引入一个外围类的实例以调用外围类的实例方法
         private Home2 home;
 
-        public CatNameCollector(Home2 home2) {
+        public CatNameCollector(Home2 home) {
             this.home = home;
         }
         private List<String> catNames = new ArrayList<>();
