@@ -15,6 +15,7 @@ public class Home2 {
 
     // 记录日志
     private void log(Cat cat) {
+
         System.out.println("Collecting cat " + cat.getName());
     }
 
@@ -24,14 +25,15 @@ public class Home2 {
         // 不要将此类改写成非静态的内部类
         // 而是引入一个外围类的实例以调用外围类的实例方法
         // private Home2 home;
-        private Home2 home;
+
         private List<String> catNames = new ArrayList<>();
-            public  CatNameCollector(Home2 home) {
-                this.home = home;
+         private Home2 home2;
+            public  CatNameCollector(Home2 home2) {
+                this.home2 = home2;
             }
         @Override
         public void accept(Cat cat) {
-            home.log(cat);
+            home2.log(cat);
             catNames.add(cat.getName());
         }
 
