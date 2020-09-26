@@ -8,7 +8,7 @@ public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
-        CatNameCollector collector = new CatNameCollector();
+        CatNameCollector collector = new CatNameCollector(this);
         cats.forEach(collector);
         return collector.getCatNames();
     }
@@ -24,11 +24,15 @@ public class Home2 {
         // 不要将此类改写成非静态的内部类
         // 而是引入一个外围类的实例以调用外围类的实例方法
         // private Home2 home;
+        private Home2 this$0;
+        public CatNameCollector(Home2 this$0){
+            this.this$0 = this$0;
+        }
         private List<String> catNames = new ArrayList<>();
 
         @Override
         public void accept(Cat cat) {
-            log(cat);
+            this$0.log(cat);
             catNames.add(cat.getName());
         }
 
