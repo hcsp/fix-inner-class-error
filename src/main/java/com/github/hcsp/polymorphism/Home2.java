@@ -19,11 +19,6 @@ public class Home2 {
     }
 
     static class CatNameCollector implements Consumer<Cat> {
-        Home2 home = new Home2();
-
-//        CatNameCollector(Home2 home) {
-//            this.home = home;
-//        }
         // 在这个类里会产生一个编译错误
         // 请思考一下为什么
         // 不要将此类改写成非静态的内部类
@@ -33,7 +28,7 @@ public class Home2 {
 
         @Override
         public void accept(Cat cat) {
-            home.log(cat);
+            log(cat);
             catNames.add(cat.getName());
         }
 
