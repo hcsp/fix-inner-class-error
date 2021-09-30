@@ -21,10 +21,7 @@ public class Home {
     // 在这个类里会产生一个编译错误
     // 请思考一下为什么
     // 并将此类改写成非静态的内部类，以修复此问题
-    class CatNameCollector implements Consumer<Cat> {
-
-        // 编译器偷偷摸摸的帮你注入了一个外围类的实例/对象
-        // private Home this$0;
+    static class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
 
         @Override
