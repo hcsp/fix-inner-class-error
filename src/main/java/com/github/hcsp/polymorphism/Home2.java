@@ -26,11 +26,9 @@ public class Home2 {
         // private Home2 home;
         private List<String> catNames = new ArrayList<>();
 
-        Home2 home = new Home2();
-
         @Override
         public void accept(Cat cat) {
-            home.log(cat);
+            log(cat);
             catNames.add(cat.getName());
         }
 
