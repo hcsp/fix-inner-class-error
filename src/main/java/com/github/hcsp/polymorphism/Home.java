@@ -21,9 +21,8 @@ public class Home {
     // 在这个类里会产生一个编译错误
     // 请思考一下为什么
     // 并将此类改写成非静态的内部类，以修复此问题
-    static class CatNameCollector implements Consumer<Cat> {
+     class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
-
         @Override
         public void accept(Cat cat) {
             log(cat);
