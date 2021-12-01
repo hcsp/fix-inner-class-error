@@ -20,9 +20,8 @@ public class Home {
 
     // 在这个类里会产生一个编译错误
     // 请思考一下为什么
-    //因为静态内部类没有隐式声明一个this$0成员对象，无法直接调用外围类的实例方法
     // 并将此类改写成非静态的内部类，以修复此问题
-    class CatNameCollector implements Consumer<Cat> {
+    static class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
 
         @Override
