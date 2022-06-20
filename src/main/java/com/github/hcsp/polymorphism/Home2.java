@@ -28,8 +28,7 @@ public class Home2 {
 
         @Override
         public void accept(Cat cat) {
-
-            new Home2().log(cat);
+            log(cat);
             catNames.add(cat.getName());
         }
 
