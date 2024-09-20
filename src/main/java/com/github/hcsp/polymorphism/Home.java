@@ -14,13 +14,14 @@ public class Home {
     }
 
     // 记录日志
-    private void log(Cat cat) {
+    private static void log(Cat cat) {
         System.out.println("Collecting cat " + cat.getName());
     }
 
     // 在这个类里会产生一个编译错误
     // 请思考一下为什么
     // 并将此类改写成非静态的内部类，以修复此问题
+    // 因为CatNameCollector类是一个静态内部类，没有与外围类的实例相绑定，所以会报错。
     static class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
 
