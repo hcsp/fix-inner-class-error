@@ -8,7 +8,8 @@ public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
-        CatNameCollector collector = new CatNameCollector();
+        // 将 Home2 的实例传递给 CatNameCollector
+        CatNameCollector collector = new CatNameCollector(this);
         cats.forEach(collector);
         return collector.getCatNames();
     }
