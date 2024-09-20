@@ -8,8 +8,7 @@ public class Home2 {
     List<Cat> cats = new ArrayList<>();
 
     public List<String> getCatNames() {
-        // 将 Home2 的实例传递给 CatNameCollector
-        CatNameCollector collector = new CatNameCollector(this);
+        CatNameCollector collector = new CatNameCollector();
         cats.forEach(collector);
         return collector.getCatNames();
     }
@@ -19,19 +18,17 @@ public class Home2 {
         System.out.println("Collecting cat " + cat.getName());
     }
 
-    // 静态内部类
     static class CatNameCollector implements Consumer<Cat> {
-        private Home2 home; // 保存外围类 Home2 的实例
+        // 在这个类里会产生一个编译错误
+        // 请思考一下为什么
+        // 不要将此类改写成非静态的内部类
+        // 而是引入一个外围类的实例以调用外围类的实例方法
+        // private Home2 home;
         private List<String> catNames = new ArrayList<>();
-
-        // 构造方法接受 Home2 的实例
-        public CatNameCollector(Home2 home) {
-            this.home = home;
-        }
 
         @Override
         public void accept(Cat cat) {
-            home.log(cat); // 使用 home 实例调用 log 方法
+            log(cat);
             catNames.add(cat.getName());
         }
 

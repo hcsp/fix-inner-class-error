@@ -14,17 +14,19 @@ public class Home {
     }
 
     // 记录日志
-    private static void log(Cat cat) {
+    private void log(Cat cat) {
         System.out.println("Collecting cat " + cat.getName());
     }
 
-    // 将此类改写为非静态的内部类
-    class CatNameCollector implements Consumer<Cat> {
+    // 在这个类里会产生一个编译错误
+    // 请思考一下为什么
+    // 并将此类改写成非静态的内部类，以修复此问题
+    static class CatNameCollector implements Consumer<Cat> {
         private List<String> catNames = new ArrayList<>();
 
         @Override
         public void accept(Cat cat) {
-            log(cat);  // 调用静态的 log 方法
+            log(cat);
             catNames.add(cat.getName());
         }
 
